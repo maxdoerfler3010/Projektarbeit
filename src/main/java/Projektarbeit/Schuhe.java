@@ -5,6 +5,4 @@ public class Schuhe {
     private int groesse;
     private double preis;
 
-    private int zahl;
-    private double hu;
 }
