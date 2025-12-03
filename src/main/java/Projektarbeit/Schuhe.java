@@ -6,4 +6,5 @@ public class Schuhe {
     private double preis;
     private String material;
 
+    private String hilfe;
 }
