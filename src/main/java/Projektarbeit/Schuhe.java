@@ -5,5 +5,5 @@ public class Schuhe {
     private int groesse;
     private double preis;
 
-    private double preisPreis;
+    private String hilfe;
 }
