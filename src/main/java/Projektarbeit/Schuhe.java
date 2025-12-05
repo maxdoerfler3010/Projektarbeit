@@ -15,7 +15,9 @@ public class Schuhe {
         this.istWasserdicht = istWasserdicht;
     }
 
-    public void brechnePreisNachlass (double prozent){
-
+    public double brechnePreisNachlass (double prozent){
+        prozent = 20;
+        preis = preis * (prozent / 100);
+        return preis;
     }
 }
