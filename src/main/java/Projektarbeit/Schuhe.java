@@ -5,6 +5,17 @@ public class Schuhe {
     private int groesse;
     private double preis;
     private String material;
+    private boolean istWasserdicht;
 
-    private String hilfe;
+    public Schuhe(String marke, int groesse, double preis, String material, boolean istWasserdicht) {
+        this.marke = marke;
+        this.groesse = groesse;
+        this.preis = preis;
+        this.material = material;
+        this.istWasserdicht = istWasserdicht;
+    }
+
+    public void brechnePreisNachlass (double prozent){
+
+    }
 }
