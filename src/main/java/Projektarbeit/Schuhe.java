@@ -13,7 +13,7 @@ public class Schuhe {
         this.material = material;
     }
 
-    public double brechnePreisNachlass (double prozent){
+    public double berechnePreisNachlass (double prozent){
         prozent = 20;
         preis = preis * (prozent / 100);
         return preis;
