@@ -1,16 +1,17 @@
 package Projektarbeit;
+import java.util.ArrayList;
 
 public class Schuhe {
     private String marke;
     private int groesse;
     private double preis;
-    private String material;
+    private boolean istWasserdicht;
 
-    public Schuhe (String marke, int groesse, double preis, String material) {
+    public Schuhe (String marke, int groesse, double preis, boolean istWasserdicht) {
         this.marke = marke;
         this.groesse = groesse;
         this.preis = preis;
-        this.material = material;
+        this.istWasserdicht = istWasserdicht;
     }
 
     public double berechnePreisNachlass (double prozent){
@@ -18,6 +19,12 @@ public class Schuhe {
         return preis;
     }
 
+    private ArrayList<Schuhe> schuhListe = new ArrayList<>();
+
     public void initObjekte() {
+            schuhListe.add (new Schuhe("Nike", 42, 110, false));
+            schuhListe.add (new Schuhe("Adidas", 38, 119.99,true));
+            schuhListe.add (new Schuhe("Puma", 40, 150,false));
+        }
     }
-}
+
