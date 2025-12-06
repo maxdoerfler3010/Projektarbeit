@@ -6,7 +6,7 @@ public class Schuhe {
     private double preis;
     private String material;
 
-    public Schuhe(String marke, int groesse, double preis, String material) {
+    public Schuhe (String marke, int groesse, double preis, String material) {
         this.marke = marke;
         this.groesse = groesse;
         this.preis = preis;
@@ -14,8 +14,10 @@ public class Schuhe {
     }
 
     public double berechnePreisNachlass (double prozent){
-        prozent = 20;
-        preis = preis * (prozent / 100);
+        preis = preis * (1 - prozent / 100);
         return preis;
+    }
+
+    public void initObjekte() {
     }
 }
