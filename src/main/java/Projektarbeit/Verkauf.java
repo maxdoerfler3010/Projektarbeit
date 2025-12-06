@@ -13,6 +13,6 @@ public class Verkauf {
     private JLabel Label_Schuhliste;
     private JButton button_hinzufügen;
     private JButton button_löschen;
-    private JComboBox comBow_Marken;
+    private JComboBox comBox_Marken;
     private JTextField tF_Größe;
 }
