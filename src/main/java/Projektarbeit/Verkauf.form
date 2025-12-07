@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="b7fe" class="javax.swing.JLabel" binding="Label_Marken">
+      <component id="b7fe" class="javax.swing.JLabel" binding="label_Marken">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -16,7 +16,7 @@
           <text value="Marken"/>
         </properties>
       </component>
-      <component id="e93bb" class="javax.swing.JLabel" binding="Label_Größe">
+      <component id="e93bb" class="javax.swing.JLabel" binding="label_Größe">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -24,7 +24,7 @@
           <text value="Größe"/>
         </properties>
       </component>
-      <component id="3d0ab" class="javax.swing.JLabel" binding="Label_Preis">
+      <component id="3d0ab" class="javax.swing.JLabel" binding="label_Preis">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -56,7 +56,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="46be1" class="javax.swing.JLabel" binding="Label_Schuhliste">
+      <component id="46be1" class="javax.swing.JLabel" binding="label_Schuhliste">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -64,15 +64,15 @@
           <text value="Schuhliste"/>
         </properties>
       </component>
-      <component id="f7886" class="javax.swing.JButton" binding="button_hinzufügen">
+      <component id="f7886" class="javax.swing.JButton" binding="speichernButton">
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Schuh hinzufügen"/>
+          <text value="Speichern"/>
         </properties>
       </component>
-      <component id="709d4" class="javax.swing.JButton" binding="button_löschen">
+      <component id="709d4" class="javax.swing.JButton" binding="löschenButton">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
