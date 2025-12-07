@@ -46,7 +46,7 @@ public class Verkauf extends JFrame{
 
                 //extra (textArea1.getText() um es in Liste zu speichern
                 textArea1_Schuhliste.setText(textArea1_Schuhliste.getText() + "neuer Schuh:" + "\nMarke: " + marke + "\nGröße: " + groesse
-                        + "\nPreis: " + preis + "\n" + wasserfest + "\n\n");
+                        + "\nPreis: " + preis + " €" + "\n" + wasserfest + "\n\n");
 
                 tF_Groesse.setText("");
                 tF_Preis.setText("");
