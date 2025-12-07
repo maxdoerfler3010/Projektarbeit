@@ -2,7 +2,7 @@ package Projektarbeit;
 
 import javax.swing.*;
 
-public class Verkauf {
+public class Verkauf extends JFrame{
     private JPanel myPanel;
     private JLabel label_Marken;
     private JLabel label_Größe;
@@ -19,4 +19,12 @@ public class Verkauf {
     private JList list2_Objekte;
     private JButton filternButton;
     private JComboBox comBox_Filter;
+
+    public Verkauf() {
+        setTitle("Verkauf");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(600, 600);
+        setContentPane(myPanel);
+        setVisible(true);
+    }
 }
