@@ -15,4 +15,8 @@ public class Verkauf {
     private JButton löschenButton;
     private JComboBox comBox_Marken;
     private JTextField tF_Größe;
+    private JLabel label_ObjektAusgeben;
+    private JList list2_Objekte;
+    private JButton filternButton;
+    private JComboBox comBox_Filter;
 }

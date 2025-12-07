@@ -27,4 +27,3 @@ public class Schuhe {
             schuhListe.add (new Schuhe("Puma", 40, 150,false));
         }
     }
-
