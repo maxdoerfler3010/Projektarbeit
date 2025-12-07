@@ -20,6 +20,7 @@ public class Verkauf extends JFrame{
     private JButton filternButton;
     private JComboBox comBox_Filter;
 
+    //Konstruktor bilden
     public Verkauf() {
         setTitle("Verkauf");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
