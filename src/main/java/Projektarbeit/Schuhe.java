@@ -29,8 +29,5 @@ public class Schuhe {
             schuhListe.add (new Schuhe("Adidas", 38, 119.99,true));
             schuhListe.add (new Schuhe("Puma", 40, 150,false));
         }
-    // WICHTIG: Getter für die Liste
-    public ArrayList<Schuhe> getSchuhListe() {
-        return schuhListe;
-    }
+
     }
