@@ -1,10 +1,17 @@
 package Projektarbeit;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.util.ArrayList;
 
 public class Verkauf extends JFrame{
+
+    //Attribute angeben, damit sie schon gleich gespeichert sind
+    private String marke;
+    private String groesse;
+    private String preis;
+
+
     private JPanel myPanel;
     private JLabel label_Marken;
     private JLabel label_Groesse;
@@ -30,6 +37,7 @@ public class Verkauf extends JFrame{
         setContentPane(myPanel);
         setVisible(true);
 
+
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,9 +48,9 @@ public class Verkauf extends JFrame{
                 }else{
                     wasserfest = "Ist nicht wasserfest";
                 }
-                String marke = comBox_Marken.getSelectedItem().toString();
-                String groesse = tF_Groesse.getText();
-                String preis = tF_Preis.getText();
+                marke = comBox_Marken.getSelectedItem().toString();
+                groesse = tF_Groesse.getText();
+                preis = tF_Preis.getText();
 
                 //extra (textArea1.getText() um es in Liste zu speichern
                 textArea1_Schuhliste.setText(textArea1_Schuhliste.getText() + "neuer Schuh:" + "\nMarke: " + marke + "\nGröße: " + groesse
@@ -62,6 +70,8 @@ public class Verkauf extends JFrame{
                 textArea1_Schuhliste.setText("");   //Schuh-Liste löschen
             }
         });
+
+
 
     }
     public static void main(String[] args) {
