@@ -2,14 +2,24 @@ package Projektarbeit;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class Verkauf extends JFrame{
 
-    //Attribute angeben, damit sie schon gleich gespeichert sind
+//Attribute angeben, damit sie schon gleich gespeichert sind
     private String marke;
     private String groesse;
     private String preis;
 
+//neue Array Liste erzeugen
+    public ArrayList<Schuhe> schuhListe = new ArrayList<>();
+
+//neue Objekte in der erzeugten Array Liste hinzufügen
+    public void initObjekte() {
+        schuhListe.add (new Schuhe("Nike", 42, 110, false));
+        schuhListe.add (new Schuhe("Adidas", 38, 119.99,true));
+        schuhListe.add (new Schuhe("Puma", 40, 150,false));
+    }
 
     private JPanel myPanel;
     private JLabel label_Marken;
@@ -28,6 +38,8 @@ public class Verkauf extends JFrame{
     private JTextArea textArea1_Schuhliste;
     private JTextArea textArea1_Filter;
 
+
+
 //Konstruktor bilden
     public Verkauf() {
         setTitle("Verkauf");
@@ -35,6 +47,7 @@ public class Verkauf extends JFrame{
         setSize(600, 600);
         setContentPane(myPanel);
         setVisible(true);
+
 
 //Action Listener, um neue Objekte in einer Liste zu speichern
         speichernButton.addActionListener(new ActionListener() {
