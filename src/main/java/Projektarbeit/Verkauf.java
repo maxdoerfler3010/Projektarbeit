@@ -4,22 +4,13 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class Verkauf extends JFrame{
+public class Verkauf extends JFrame {
 
-//Attribute angeben, damit sie schon gleich gespeichert sind
+    //Attribute angeben, damit sie schon gleich gespeichert sind
     private String marke;
     private String groesse;
     private String preis;
 
-//neue Array Liste erzeugen
-    public ArrayList<Schuhe> schuhListe = new ArrayList<>();
-
-//neue Objekte in der erzeugten Array Liste hinzufügen
-    public void initObjekte() {
-        schuhListe.add (new Schuhe("Nike", 42, 110, false));
-        schuhListe.add (new Schuhe("Adidas", 38, 119.99,true));
-        schuhListe.add (new Schuhe("Puma", 40, 150,false));
-    }
 
     private JPanel myPanel;
     private JLabel label_Marken;
@@ -33,14 +24,13 @@ public class Verkauf extends JFrame{
     private JComboBox comBox_Marken;
     private JTextField tF_Groesse;
     private JLabel label_ObjektAusgeben;
-    private JButton filternButton;
-    private JComboBox comBox_Filter;
     private JTextArea textArea1_Schuhliste;
     private JTextArea textArea1_Filter;
+    private JComboBox comboBox1_Filter;
+    private JButton filternButton;
 
 
-
-//Konstruktor bilden
+    //Konstruktor bilden
     public Verkauf() {
         setTitle("Verkauf");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,14 +47,14 @@ public class Verkauf extends JFrame{
                 String wasserfest;
                 if (checkBox_Wasserfest.isSelected()) {
                     wasserfest = "Ist wasserfest";
-                }else{
+                } else {
                     wasserfest = "Ist nicht wasserfest";
                 }
                 marke = comBox_Marken.getSelectedItem().toString();
                 groesse = tF_Groesse.getText();
                 preis = tF_Preis.getText();
 
-        //extra (textArea1_Filter.getText() um es in Liste zu speichern
+                //extra (textArea1_Filter.getText() um es in Liste zu speichern
                 textArea1_Schuhliste.setText(textArea1_Schuhliste.getText() + "neuer Schuh:" + "\nMarke: " + marke + "\nGröße: " + groesse
                         + "\nPreis: " + preis + " €" + "\n" + wasserfest + "\n\n");
 
@@ -86,7 +76,6 @@ public class Verkauf extends JFrame{
         });
 
 
-//Action Listener um die einzelnen Objekte (Schuhe) zu filtern
         filternButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,5 +83,4 @@ public class Verkauf extends JFrame{
             }
         });
     }
-
 }
