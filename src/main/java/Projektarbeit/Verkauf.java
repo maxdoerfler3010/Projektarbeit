@@ -71,7 +71,8 @@ public class Verkauf extends JFrame {
         loeschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textArea1_Filter.setText("");   //Schuh-Liste löschen
+                textArea1_Schuhliste.setText("");//Schuh-Liste löschen
+                textArea1_Filter.setText("");
             }
         });
 
