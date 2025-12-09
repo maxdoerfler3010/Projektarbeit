@@ -45,14 +45,6 @@
           <text value="Bestimmtes Objekt augeben"/>
         </properties>
       </component>
-      <component id="9a240" class="javax.swing.JList" binding="list2_Objekte">
-        <constraints>
-          <grid row="3" column="2" row-span="5" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="50"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
       <component id="709d4" class="javax.swing.JButton" binding="loeschenButton">
         <constraints>
           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -133,6 +125,14 @@
       <component id="49fff" class="javax.swing.JTextArea" binding="textArea1_Schuhliste">
         <constraints>
           <grid row="1" column="1" row-span="7" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="8f392" class="javax.swing.JTextArea" binding="textArea1_Filter">
+        <constraints>
+          <grid row="3" column="2" row-span="5" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>

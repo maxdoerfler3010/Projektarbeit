@@ -2,7 +2,6 @@ package Projektarbeit;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 public class Verkauf extends JFrame{
 
@@ -24,12 +23,12 @@ public class Verkauf extends JFrame{
     private JComboBox comBox_Marken;
     private JTextField tF_Groesse;
     private JLabel label_ObjektAusgeben;
-    private JList list2_Objekte;
     private JButton filternButton;
     private JComboBox comBox_Filter;
     private JTextArea textArea1_Schuhliste;
+    private JTextArea textArea1_Filter;
 
-    //Konstruktor bilden
+//Konstruktor bilden
     public Verkauf() {
         setTitle("Verkauf");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,7 +36,7 @@ public class Verkauf extends JFrame{
         setContentPane(myPanel);
         setVisible(true);
 
-
+//Action Listener, um neue Objekte in einer Liste zu speichern
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,10 +51,11 @@ public class Verkauf extends JFrame{
                 groesse = tF_Groesse.getText();
                 preis = tF_Preis.getText();
 
-                //extra (textArea1.getText() um es in Liste zu speichern
+        //extra (textArea1_Filter.getText() um es in Liste zu speichern
                 textArea1_Schuhliste.setText(textArea1_Schuhliste.getText() + "neuer Schuh:" + "\nMarke: " + marke + "\nGröße: " + groesse
                         + "\nPreis: " + preis + " €" + "\n" + wasserfest + "\n\n");
 
+//die Texteingabefelder löschen sich automatisch
                 tF_Groesse.setText("");
                 tF_Preis.setText("");
                 checkBox_Wasserfest.setSelected(false);
@@ -64,17 +64,22 @@ public class Verkauf extends JFrame{
         });
 
 
+//Action listener, um alle Textfelder zu löschen
         loeschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textArea1_Schuhliste.setText("");   //Schuh-Liste löschen
+                textArea1_Filter.setText("");   //Schuh-Liste löschen
             }
         });
 
 
+//Action Listener um die einzelnen Objekte (Schuhe) zu filtern
+        filternButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+            }
+        });
     }
-    public static void main(String[] args) {
-        new Verkauf();
-    }
+
 }
