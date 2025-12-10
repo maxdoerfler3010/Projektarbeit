@@ -29,11 +29,11 @@ public static void addSchuhe(Schuhe s){
 
 //Getter hinzufügen, damit das Filtern funktioniert
     public String getMarke() {
-        return marke;
+    return marke;
     }
 
     public int getGroesse() {
-        return groesse;
+    return groesse;
     }
 
     public double getPreis() {

@@ -34,7 +34,7 @@ public class Verkauf extends JFrame{
     public Verkauf() {
         setTitle("Verkauf");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 600);
+        setSize(800, 800);
         setContentPane(myPanel);
         setVisible(true);
 
