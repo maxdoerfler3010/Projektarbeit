@@ -138,7 +138,17 @@ public class Verkauf extends JFrame{
     //Filter-Methode
     private void filtereNachMarke() {
 
+        /*ArrayList<String> gefilterteDaten = new ArrayList<>();
         String ausgewaehlteMarke = comboBox1_Filter.getSelectedItem().toString();
+
+        for (Schuhe item : Schuhe.schuhListe) {
+            if (item.contains(ausgewaehlteMarke)) { // Beispiel: Enthält der String den Filter?
+                gefilterteDaten.add(String.valueOf(item));
+            }
+        }
+        comboBox1_Filter.setModel(new DefaultComboBoxModel<>(gefilterteDaten.toArray()));
+*/
+        /*String ausgewaehlteMarke = comboBox1_Filter.getSelectedItem().toString();
         String text = "";
 
         for (Schuhe s : Schuhe.schuhListe) {
@@ -148,7 +158,7 @@ public class Verkauf extends JFrame{
             }
         }
 
-        textArea1_Filter.setText(text);
+        textArea1_Filter.setText(text);*/
     }
 
     private void loeschen(){

@@ -37,11 +37,11 @@ public static void addSchuhe(Schuhe s){
     }
 
     public double getPreis() {
-        return preis;
+    return preis;
     }
 
     public boolean istWasserdicht() {
-        return istWasserdicht;
+    return istWasserdicht;
     }
 
 //Methode zur Berechnung eines Preisnachlasses
@@ -54,4 +54,7 @@ public static void addSchuhe(Schuhe s){
     return "Marke: " + marke + "\nGröße: " + groesse + "\nPreis: " + preis + " €" + "\n" + (istWasserdicht ? "Ist wasserdicht" : "Ist nicht wasserdicht");
     }
 
+    public boolean contains(String ausgewaehlteMarke) {
+    return false;
+    }
 }
