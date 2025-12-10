@@ -82,15 +82,14 @@ public class Verkauf extends JFrame{
         textArea1_Schuhliste.setText(text);
     }
 
-    //------------------MUSS MIT AUSGEGRAUTEM ERGÄNZT WERDEN--------------------
     // neuen Schuh aus den Eingabefeldern erstellen, in Liste speichern & anzeigen
     public void speichereSchuh() {
         try {
             boolean istWasserdicht = checkBox_Wasserfest.isSelected();
 
             marke = comBox_Marken.getSelectedItem().toString();
-            groesse = tF_Groesse.getText().trim();
-            preis = tF_Preis.getText().trim();
+            groesse = tF_Groesse.getText();
+            preis = tF_Preis.getText();
 
             int groesseInt = Integer.parseInt(groesse);
             double preisDouble = Double.parseDouble(preis);
@@ -113,26 +112,6 @@ public class Verkauf extends JFrame{
                     "Eingabefehler",
                     JOptionPane.ERROR_MESSAGE);
         }
-
-            /*String wasserfest;
-                if (checkBox_Wasserfest.isSelected()) {
-                    wasserfest = "Ist wasserfest";
-                } else {
-                    wasserfest = "Ist nicht wasserfest";
-                }
-                marke = comBox_Marken.getSelectedItem().toString();
-                groesse = tF_Groesse.getText();
-                preis = tF_Preis.getText();
-
-                //extra (textArea1_Filter.getText() um es in Liste zu speichern
-                textArea1_Schuhliste.setText(textArea1_Schuhliste.getText() + "neuer Schuh:" + "\nMarke: " + marke + "\nGröße: " + groesse
-                        + "\nPreis: " + preis + " €" + "\n" + wasserfest + "\n\n");
-
-                //die Texteingabefelder löschen sich automatisch
-                tF_Groesse.setText("");
-                tF_Preis.setText("");
-                checkBox_Wasserfest.setSelected(false);
-                */
     }
 
     //Filter-Methode
