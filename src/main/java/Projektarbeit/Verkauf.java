@@ -2,7 +2,6 @@ package Projektarbeit;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 public class Verkauf extends JFrame{
 
@@ -28,6 +27,9 @@ public class Verkauf extends JFrame{
     private JTextArea textArea1_Filter;
     private JComboBox comboBox1_Filter;
     private JButton filternButton;
+    private JPanel attributePanel;
+    private JPanel listePanel;
+    private JPanel filterPanel;
 
 
     //Konstruktor bilden
