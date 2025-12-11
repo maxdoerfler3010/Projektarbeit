@@ -1,7 +1,10 @@
 package Projektarbeit;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class Verkauf extends JFrame{
 
@@ -30,6 +33,8 @@ public class Verkauf extends JFrame{
     private JPanel attributePanel;
     private JPanel listePanel;
     private JPanel filterPanel;
+    private JLabel imageLabel;
+    private JPanel imagePanel;
 
 
     //Konstruktor bilden
@@ -38,10 +43,11 @@ public class Verkauf extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 800);
         setContentPane(myPanel);
+        //add(imageLabel("SchuheBanner.jpeg"));
         setVisible(true);
 
         //zeigt die 3 Anfangsschuhe direkt im Textfeld
-        Schuhe.initObjekte();;
+        Schuhe.initObjekte();
         zeigeAlleSchuhe();
 
 
@@ -71,6 +77,22 @@ public class Verkauf extends JFrame{
         });
     }
 
+    /*
+    //hoffentlich funktionierende Banner Methode
+    public static JLabel imageLabel(String fileName){
+        BufferedImage image;
+        JLabel imageContainer;
+
+        try{
+            image = ImageIO.read(new File(fileName));
+            imageContainer = new JLabel(new ImageIcon(image));
+            return imageContainer;
+        }catch(Exception e){
+            System.out.println("Error: " + e);
+            return null;
+        }
+    }
+    */
 
     //------------------MUSS NOCH GEÄNDERT WERDEN---------------------
     //Methode um alle Schuhe anzuzeigen
@@ -160,7 +182,6 @@ public class Verkauf extends JFrame{
 JUNit Test noch machen mit Methode
 Methode nutzen in der GUI / also vllt Rabattfeld einfügen
 fehlende Fehlermeldungen hinzufügen
-alleSchuheZeigen Methode in eigen gedachten code ändern
 filter Methode Lösung überlegen
 GUI schön machen
  */
