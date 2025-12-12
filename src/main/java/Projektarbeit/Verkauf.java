@@ -43,6 +43,8 @@ public class Verkauf extends JFrame{
         //add(imageLabel("SchuheBanner.jpeg"));
         setVisible(true);
 
+        comBox_Rabatt.setModel(new DefaultComboBoxModel<>(new String[] {"Kein Rabatt", "10%", "20%"}));
+
         //zeigt die 3 Anfangsschuhe direkt im Textfeld
         Schuhe.initObjekte();
         zeigeAlleSchuhe();
@@ -119,7 +121,7 @@ public class Verkauf extends JFrame{
 
             // neues Objekt erzeugen und in der zentralen Liste speichern
             Schuhe neuerSchuh = new Schuhe(marke, groesseInt, preisDouble, istWasserdicht);
-            Schuhe.schuhListe.add(neuerSchuh);
+            Schuhe.addSchuhe(neuerSchuh);
 
             // komplette Liste neu anzeigen
             zeigeAlleSchuhe();
@@ -137,49 +139,42 @@ public class Verkauf extends JFrame{
         }
     }
 
+
     //Rabatt auf den Schuh anwenden
-    public void rabattbenutzen (){
-            String rabatt = (String) comBox_Rabatt.getSelectedItem();
+    public void rabattbenutzen() {
+        String rabatt = (String) comBox_Rabatt.getSelectedItem();
+        if (rabatt == null) return;
 
-/*
-        //verhinder, dass bei keinem Rabatt ein Textfeld augegeben wird
+        // Wenn "Kein Rabatt" gewählt, nichts tun
         if (rabatt.equals("Kein Rabatt")) {
-            textArea1_Schuhliste.setVisible(false);   // Textfeld AUS
-        } else {
-            textArea1_Schuhliste.setVisible(true);    // Textfeld EIN
+            return;
         }
 
- */
-            try {
-                // Alten Preis sichern
-                double preisDoubleAlt = Double.parseDouble(preis); // String → Zahl
-
-                //neuen Preis berechnen
-                double preisDouble = preisDoubleAlt;
-
-                switch (rabatt) {
-                    case "10%":
-                        preisDouble = preisDouble * 0.9;
-                        break;
-                    case "20%":
-                        preisDouble = preisDouble * 0.8;
-                        break;
-                    default:
-                        break;
-                }
-
-                // Ergebnis wieder zurück in den String schreiben
-                preis = String.valueOf(preisDouble);
-
-                // Preis in die Textliste schreiben
-                textArea1_Schuhliste.append(
-                        "Neuer Preis (" + rabatt + "): " + preisDouble + " € \n"
-                );
-
-            } catch (NumberFormatException e) {
-
-            }
+        // Prüfen, ob Liste leer ist
+        if (Schuhe.schuhListe.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Keine Schuhe vorhanden, auf die Rabatt angewandt werden kann.");
+            return;
         }
+
+        // letzten Schuh holen
+        Schuhe letzter = Schuhe.schuhListe.get(Schuhe.schuhListe.size() - 1);
+
+        // Welchen Rabatt anwenden?
+        switch (rabatt) {
+            case "10%":
+                letzter.applyDiscount(0.9); // 10% Rabatt -> Faktor 0.9
+                break;
+            case "20%":
+                letzter.applyDiscount(0.8);
+                break;
+            default:
+                // nicht erwartet — nichts tun
+                return;
+        }
+
+        // Anzeige aktualisieren
+        zeigeAlleSchuhe();
+    }
 
 
 
