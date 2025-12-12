@@ -60,7 +60,7 @@ public static void addSchuhe(Schuhe s){
     public String toString(){
         String preisText = String.format("%.2f €", preis);
         if (alterPreis != preis) {
-            preisText += " (Alter Preis: " + String.format("%.2f €", alterPreis) + ")";
+            preisText += "\n(Regulärer Preis: " + String.format("%.2f €", alterPreis) + ")";
         }
         return "Marke: " + marke +
                 "\nGröße: " + groesse +
