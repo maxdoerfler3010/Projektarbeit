@@ -202,7 +202,7 @@ public class Verkauf extends JFrame{
     //Filter-Methode
     private void filtereNachMarke() {
         //--------------SELBER------------
-        /*//ArrayList<Schuhe> gefilterteDaten = new ArrayList<>();
+        /*
         String ausgewaehlteMarke = comboBox1_Filter.getSelectedItem().toString();
 
         for (Schuhe item : schuhListe) {
