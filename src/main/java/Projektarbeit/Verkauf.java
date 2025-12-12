@@ -1,10 +1,7 @@
 package Projektarbeit;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 
 public class Verkauf extends JFrame{
 
@@ -12,7 +9,6 @@ public class Verkauf extends JFrame{
     private String marke;
     private String groesse;
     private String preis;
-
 
     private JPanel myPanel;
     private JLabel label_Marken;
@@ -35,6 +31,7 @@ public class Verkauf extends JFrame{
     private JPanel filterPanel;
     private JLabel imageLabel;
     private JPanel imagePanel;
+    private JComboBox comBox_Rabatt;
 
 
     //Konstruktor bilden
@@ -56,6 +53,7 @@ public class Verkauf extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 speichereSchuh();
+                rabattbenutzen();
             }
         });
 
@@ -75,6 +73,7 @@ public class Verkauf extends JFrame{
                 filtereNachMarke();
             }
         });
+
     }
 
     /*
@@ -137,6 +136,53 @@ public class Verkauf extends JFrame{
                     JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    //Rabatt auf den Schuh anwenden
+    public void rabattbenutzen (){
+            String rabatt = (String) comBox_Rabatt.getSelectedItem();
+
+/*
+        //verhinder, dass bei keinem Rabatt ein Textfeld augegeben wird
+        if (rabatt.equals("Kein Rabatt")) {
+            textArea1_Schuhliste.setVisible(false);   // Textfeld AUS
+        } else {
+            textArea1_Schuhliste.setVisible(true);    // Textfeld EIN
+        }
+
+ */
+
+            try {
+                // Alten Preis sichern
+                double preisDoubleAlt = Double.parseDouble(preis); // String → Zahl
+
+                //neuen Preis berechnen
+                double preisDouble = preisDoubleAlt;
+
+                switch (rabatt) {
+                    case "10%":
+                        preisDouble = preisDouble * 0.9;
+                        break;
+                    case "20%":
+                        preisDouble = preisDouble * 0.8;
+                        break;
+                    default:
+                        break;
+                }
+
+                // Ergebnis wieder zurück in den String schreiben
+                preis = String.valueOf(preisDouble);
+
+                // Preis in die Textliste schreiben
+                textArea1_Schuhliste.append(
+                        "Neuer Preis (" + rabatt + "): " + preisDouble + " € \n"
+                );
+
+            } catch (NumberFormatException e) {
+
+            }
+        }
+
+
 
     //Filter-Methode
     private void filtereNachMarke() {

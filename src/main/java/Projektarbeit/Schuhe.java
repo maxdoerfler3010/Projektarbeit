@@ -44,11 +44,6 @@ public static void addSchuhe(Schuhe s){
     return istWasserdicht;
     }
 
-//Methode zur Berechnung eines Preisnachlasses
-    public double berechnePreisNachlass (double prozent){
-        preis = preis * (1 - prozent / 100);
-        return preis;
-    }
 
     public String toString(){
     return "Marke: " + marke + "\nGröße: " + groesse + "\nPreis: " + preis + " €" + "\n" + (istWasserdicht ? "Ist wasserdicht" : "Ist nicht wasserdicht");
