@@ -16,7 +16,7 @@ public class Schuhe {
         this.alterPreis = preis;   // <---- alten Preis merken
         this.istWasserdicht = istWasserdicht;
     }
-
+/*
     //neue Array Liste erzeugen
 public static ArrayList<Schuhe> schuhListe = new ArrayList<>();
 
@@ -29,7 +29,7 @@ public static void initObjekte() {
 
 public static void addSchuhe(Schuhe s){
     schuhListe.add(s);
-}
+}*/
 
 //Getter hinzufügen, damit das Filtern funktioniert
     public String getMarke() {

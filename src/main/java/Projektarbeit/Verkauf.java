@@ -1,8 +1,8 @@
 package Projektarbeit;
 
-import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class Verkauf extends JFrame{
 
@@ -47,7 +47,7 @@ public class Verkauf extends JFrame{
         comBox_Rabatt.setModel(new DefaultComboBoxModel<>(new String[] {"Kein Rabatt", "10%", "20%"}));
 
         //zeigt die 3 Anfangsschuhe direkt im Textfeld
-        Schuhe.initObjekte();
+        initObjekte();
         zeigeAlleSchuhe();
 
 
@@ -79,16 +79,55 @@ public class Verkauf extends JFrame{
 
     }
 
+    //neue Array Liste erzeugen
+    public static ArrayList<Schuhe> schuhListe = new ArrayList<>();
+
+    public static ArrayList<Schuhe> gefilterteDaten = new ArrayList<>();
+
+
+    //neue Objekte in der erzeugten Array Liste hinzufügen
+    public static void initObjekte() {
+        schuhListe.add(new Schuhe("Nike", 42, 110, false));
+        schuhListe.add(new Schuhe("Adidas", 38, 119.99, true));
+        schuhListe.add(new Schuhe("Puma", 40, 150, false));
+    }
+
+    public static void addSchuhe(Schuhe s){
+        schuhListe.add(s);
+    }
+
     //------------------MUSS NOCH GEÄNDERT WERDEN---------------------
     //Methode um alle Schuhe anzuzeigen
     public void zeigeAlleSchuhe() {
         String text = "";
 
-        for (Schuhe s : Schuhe.schuhListe) {
+        for (Schuhe s : schuhListe) {
             text += s.toString() + "\n\n";
         }
 
         textArea1_Schuhliste.setText(text);
+    }
+
+    //Methode um gefilterte Schuhe anzuzeigen
+    public void zeigeGefilterteSchuhe() {
+        //----------SELBER------------
+        /*String text = "";
+
+        for (Schuhe item : gefilterteDaten) {
+            text += item.toString() + "\n\n";
+        }
+
+        textArea1_Filter.setText(text);*/
+
+        //----------CHATGPT---------
+        /*StringBuilder text = new StringBuilder();
+
+        for (Schuhe item : gefilterteDaten) {
+            text.append(item.toString()).append("\n\n");
+        }
+
+        textArea1_Filter.setText(text.toString());
+        */
     }
 
     // neuen Schuh aus den Eingabefeldern erstellen, in Liste speichern & anzeigen
@@ -105,7 +144,7 @@ public class Verkauf extends JFrame{
 
             // neues Objekt erzeugen und in der zentralen Liste speichern
             Schuhe neuerSchuh = new Schuhe(marke, groesseInt, preisDouble, istWasserdicht);
-            Schuhe.addSchuhe(neuerSchuh);
+            addSchuhe(neuerSchuh);
 
             // komplette Liste neu anzeigen
             zeigeAlleSchuhe();
@@ -135,13 +174,13 @@ public class Verkauf extends JFrame{
         }
 
         // Prüfen, ob Liste leer ist
-        if (Schuhe.schuhListe.isEmpty()) {
+        if (schuhListe.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Keine Schuhe vorhanden, auf die Rabatt angewandt werden kann.");
             return;
         }
 
         // letzten Schuh holen
-        Schuhe letzter = Schuhe.schuhListe.get(Schuhe.schuhListe.size() - 1);
+        Schuhe letzter = schuhListe.get(schuhListe.size() - 1);
 
         // Welchen Rabatt anwenden?
         switch (rabatt) {
@@ -160,31 +199,33 @@ public class Verkauf extends JFrame{
         zeigeAlleSchuhe();
     }
 
-
-
     //Filter-Methode
     private void filtereNachMarke() {
-
-        /*ArrayList<String> gefilterteDaten = new ArrayList<>();
+        //--------------SELBER------------
+        /*//ArrayList<Schuhe> gefilterteDaten = new ArrayList<>();
         String ausgewaehlteMarke = comboBox1_Filter.getSelectedItem().toString();
 
-        for (Schuhe item : Schuhe.schuhListe) {
-            if (item.contains(ausgewaehlteMarke)) { // Beispiel: Enthält der String den Filter?
-                gefilterteDaten.add(String.valueOf(item));
+        for (Schuhe item : schuhListe) {
+            if (item.getMarke() != ausgewaehlteMarke) {
+                continue;
             }
-        }
-        comboBox1_Filter.setModel(new DefaultComboBoxModel<>(gefilterteDaten.toArray()));
-*/
-        /*String ausgewaehlteMarke = comboBox1_Filter.getSelectedItem().toString();
-        String text = "";
+            gefilterteDaten.add(item);
+            zeigeGefilterteSchuhe();
+        }*/
 
-        for (Schuhe s : Schuhe.schuhListe) {
-            if (ausgewaehlteMarke.equals("Alle") || s.getMarke().equalsIgnoreCase(ausgewaehlteMarke)) {
-                text += s.toString() + "\n\n";
+        //----------CHATGPT---------
+        /*gefilterteDaten.clear(); // ganz wichtig!
+        String ausgewaehlteMarke = comboBox1_Filter.getSelectedItem().toString();
+
+        for (Schuhe item : schuhListe) {
+            if (!item.getMarke().equals(ausgewaehlteMarke)) {
+                continue;
             }
+            gefilterteDaten.add(item);
         }
 
-        textArea1_Filter.setText(text);*/
+        zeigeGefilterteSchuhe(); // erst NACH der Schleife!
+        */
     }
 
     private void loeschen(){
