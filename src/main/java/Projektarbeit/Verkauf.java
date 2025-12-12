@@ -1,5 +1,6 @@
 package Projektarbeit;
 
+import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -77,23 +78,6 @@ public class Verkauf extends JFrame{
         });
 
     }
-
-    /*
-    //hoffentlich funktionierende Banner Methode
-    public static JLabel imageLabel(String fileName){
-        BufferedImage image;
-        JLabel imageContainer;
-
-        try{
-            image = ImageIO.read(new File(fileName));
-            imageContainer = new JLabel(new ImageIcon(image));
-            return imageContainer;
-        }catch(Exception e){
-            System.out.println("Error: " + e);
-            return null;
-        }
-    }
-    */
 
     //------------------MUSS NOCH GEÄNDERT WERDEN---------------------
     //Methode um alle Schuhe anzuzeigen
