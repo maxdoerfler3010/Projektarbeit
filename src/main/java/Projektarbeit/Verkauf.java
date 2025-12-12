@@ -179,8 +179,7 @@ public class Verkauf extends JFrame{
         String text = "";
 
         for (Schuhe s : Schuhe.schuhListe) {
-            if (ausgewaehlteMarke.equals("Alle") ||
-                    s.getMarke().equalsIgnoreCase(ausgewaehlteMarke)) {
+            if (ausgewaehlteMarke.equals("Alle") || s.getMarke().equalsIgnoreCase(ausgewaehlteMarke)) {
                 text += s.toString() + "\n\n";
             }
         }
