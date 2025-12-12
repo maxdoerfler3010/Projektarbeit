@@ -150,7 +150,6 @@ public class Verkauf extends JFrame{
         }
 
  */
-
             try {
                 // Alten Preis sichern
                 double preisDoubleAlt = Double.parseDouble(preis); // String → Zahl
