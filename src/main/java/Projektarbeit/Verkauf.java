@@ -44,7 +44,17 @@ public class Verkauf extends JFrame{
         //add(imageLabel("SchuheBanner.jpeg"));
         setVisible(true);
 
+        // ComboBox enthält alle möglichen Filteroptionen
         comBox_Rabatt.setModel(new DefaultComboBoxModel<>(new String[] {"Kein Rabatt", "10%", "20%"}));
+
+        comboBox1_Filter.setModel(new DefaultComboBoxModel<>(new String[] {
+                "Nike",
+                "Adidas",
+                "Puma",
+                "Wasserdicht",
+                "Nicht wasserdicht"
+        }));
+
 
         //zeigt die 3 Anfangsschuhe direkt im Textfeld
         initObjekte();
@@ -82,6 +92,7 @@ public class Verkauf extends JFrame{
     //neue Array Liste erzeugen
     public static ArrayList<Schuhe> schuhListe = new ArrayList<>();
 
+    // neue Liste für die gefilterten Daten der Schuhe
     public static ArrayList<Schuhe> gefilterteDaten = new ArrayList<>();
 
 
@@ -96,39 +107,34 @@ public class Verkauf extends JFrame{
         schuhListe.add(s);
     }
 
-    //------------------MUSS NOCH GEÄNDERT WERDEN---------------------
     //Methode um alle Schuhe anzuzeigen
     public void zeigeAlleSchuhe() {
-        String text = "";
 
+        // StringBuilder wird verwendet, um Text effizient zusammenzusetzen
+        StringBuilder text = new StringBuilder();
+
+        // Alle Schuhe aus der Liste werden durchlaufen und zum Text hinzugefügt
         for (Schuhe s : schuhListe) {
-            text += s.toString() + "\n\n";
+            text.append(s).append("\n\n"); //append(s) hängt den Schuh an den Text an
         }
-
-        textArea1_Schuhliste.setText(text);
+        // Fügt die Textdarstellung des aktuellen Schuhs (toString) an den Text an
+        textArea1_Schuhliste.setText(text.toString());
     }
+
 
     //Methode um gefilterte Schuhe anzuzeigen
     public void zeigeGefilterteSchuhe() {
-        //----------SELBER------------
-        /*String text = "";
+        StringBuilder text = new StringBuilder();
 
-        for (Schuhe item : gefilterteDaten) {
-            text += item.toString() + "\n\n";
+        // Jeden gefilterten Schuh zur Textausgabe hinzufügen
+        for (Schuhe s : gefilterteDaten) {
+            text.append(s.toString()).append("\n\n");
         }
 
-        textArea1_Filter.setText(text);*/
-
-        //----------CHATGPT---------
-        /*StringBuilder text = new StringBuilder();
-
-        for (Schuhe item : gefilterteDaten) {
-            text.append(item.toString()).append("\n\n");
-        }
-
+        // Text in der Filter TextArea anzeigen
         textArea1_Filter.setText(text.toString());
-        */
     }
+
 
     // neuen Schuh aus den Eingabefeldern erstellen, in Liste speichern & anzeigen
     public void speichereSchuh() {
@@ -173,19 +179,13 @@ public class Verkauf extends JFrame{
             return;
         }
 
-        // Prüfen, ob Liste leer ist
-        if (schuhListe.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Keine Schuhe vorhanden, auf die Rabatt angewandt werden kann.");
-            return;
-        }
-
         // letzten Schuh holen
         Schuhe letzter = schuhListe.get(schuhListe.size() - 1);
 
         // Welchen Rabatt anwenden?
         switch (rabatt) {
             case "10%":
-                letzter.applyDiscount(0.9); // 10% Rabatt -> Faktor 0.9
+                letzter.applyDiscount(0.9);
                 break;
             case "20%":
                 letzter.applyDiscount(0.8);
@@ -197,36 +197,51 @@ public class Verkauf extends JFrame{
 
         // Anzeige aktualisieren
         zeigeAlleSchuhe();
+
+        // Rabatt-ComboBox zurücksetzen
+        comBox_Rabatt.setSelectedItem("Kein Rabatt");
     }
 
-    //Filter-Methode
+//Filter-Methode
+    // Die Methode filtert die Schuhe anhand der Auswahl in der ComboBox und speichert passende Schuhe in der Liste "gefilterteDaten"
     private void filtereNachMarke() {
-        //--------------SELBER------------
-        /*
-        String ausgewaehlteMarke = comboBox1_Filter.getSelectedItem().toString();
 
-        for (Schuhe item : schuhListe) {
-            if (item.getMarke() != ausgewaehlteMarke) {
-                continue;
+        // Alte Filterergebnisse löschen, damit die Liste neu aufgebaut wird
+        gefilterteDaten.clear(); // wichtig!
+
+        // Ausgewählten Filter aus der ComboBox auslesen
+        String filter = comboBox1_Filter.getSelectedItem().toString();
+
+        // Alle Schuhe aus der Hauptliste durchlaufen
+        for (Schuhe s : schuhListe) {
+
+            // Je nach ausgewähltem Filter wird unterschiedlich geprüft
+            switch (filter) {
+                case "Nike":
+                case "Adidas":
+                case "Puma":
+                    if (s.getMarke().equalsIgnoreCase(filter)) {
+                        gefilterteDaten.add(s);
+                    }
+                    break;
+
+                case "Wasserdicht":
+                    if (s.istWasserdicht()) {
+                        gefilterteDaten.add(s);
+                    }
+                    break;
+
+                case "Nicht wasserdicht":
+                    if (!s.istWasserdicht()) {
+                        gefilterteDaten.add(s);
+                    }
+                    break;
             }
-            gefilterteDaten.add(item);
-            zeigeGefilterteSchuhe();
-        }*/
-
-        //----------CHATGPT---------
-        /*gefilterteDaten.clear(); // ganz wichtig!
-        String ausgewaehlteMarke = comboBox1_Filter.getSelectedItem().toString();
-
-        for (Schuhe item : schuhListe) {
-            if (!item.getMarke().equals(ausgewaehlteMarke)) {
-                continue;
-            }
-            gefilterteDaten.add(item);
         }
-
-        zeigeGefilterteSchuhe(); // erst NACH der Schleife!
-        */
+        // Gefilterte Schuhe in der Filter TextArea anzeigen
+        zeigeGefilterteSchuhe();
     }
+
 
     private void loeschen(){
         textArea1_Schuhliste.setText("");//Schuh-Liste löschen
@@ -243,8 +258,6 @@ public class Verkauf extends JFrame{
 //TO-DO
 /*
 JUNit Test noch machen mit Methode
-Methode nutzen in der GUI / also vllt Rabattfeld einfügen
 fehlende Fehlermeldungen hinzufügen
-filter Methode Lösung überlegen
 GUI schön machen
  */

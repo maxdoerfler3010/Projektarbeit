@@ -39,7 +39,6 @@
                 <item value="Nike"/>
                 <item value="Puma"/>
                 <item value="Adidas"/>
-                <item value="Asics"/>
               </model>
             </properties>
           </component>
@@ -184,7 +183,6 @@
                 <item value="Marke: Nike"/>
                 <item value="Marke: Adidas"/>
                 <item value="Marke: Puma"/>
-                <item value="Marke: Asics"/>
                 <item value="ist wasserfest"/>
                 <item value="ist nicht wasserfest"/>
               </model>

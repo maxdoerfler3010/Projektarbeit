@@ -16,20 +16,7 @@ public class Schuhe {
         this.alterPreis = preis;   // <---- alten Preis merken
         this.istWasserdicht = istWasserdicht;
     }
-/*
-    //neue Array Liste erzeugen
-public static ArrayList<Schuhe> schuhListe = new ArrayList<>();
 
-//neue Objekte in der erzeugten Array Liste hinzufügen
-public static void initObjekte() {
-    schuhListe.add(new Schuhe("Nike", 42, 110, false));
-    schuhListe.add(new Schuhe("Adidas", 38, 119.99, true));
-    schuhListe.add(new Schuhe("Puma", 40, 150, false));
-}
-
-public static void addSchuhe(Schuhe s){
-    schuhListe.add(s);
-}*/
 
 //Getter hinzufügen, damit das Filtern funktioniert
     public String getMarke() {
