@@ -257,7 +257,6 @@ public class Verkauf extends JFrame{
 
 //TO-DO
 /*
-JUNit Test noch machen mit Methode
 fehlende Fehlermeldungen hinzufügen
 GUI schön machen
  */
