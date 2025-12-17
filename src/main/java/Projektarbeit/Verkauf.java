@@ -111,29 +111,20 @@ public class Verkauf extends JFrame{
     //Methode um alle Schuhe anzuzeigen
     public void zeigeAlleSchuhe() {
 
-        // StringBuilder wird verwendet, um Text effizient zusammenzusetzen
-        StringBuilder text = new StringBuilder();
-
         // Alle Schuhe aus der Liste werden durchlaufen und zum Text hinzugefügt
+        textArea1_Schuhliste.setText("");
         for (Schuhe s : schuhListe) {
-            text.append(s).append("\n\n"); //append(s) hängt den Schuh an den Text an
+            textArea1_Schuhliste.setText(textArea1_Schuhliste.getText() + s.toString() + "\n\n");
         }
-        // Fügt die Textdarstellung des aktuellen Schuhs (toString) an den Text an
-        textArea1_Schuhliste.setText(text.toString());
     }
 
 
     //Methode um gefilterte Schuhe anzuzeigen
     public void zeigeGefilterteSchuhe() {
-        StringBuilder text = new StringBuilder();
-
-        // Jeden gefilterten Schuh zur Textausgabe hinzufügen
+        textArea1_Filter.setText("");
         for (Schuhe s : gefilterteDaten) {
-            text.append(s.toString()).append("\n\n");
+            textArea1_Filter.setText(textArea1_Filter.getText() + s.toString() + "\n\n");
         }
-
-        // Text in der Filter TextArea anzeigen
-        textArea1_Filter.setText(text.toString());
     }
 
 
