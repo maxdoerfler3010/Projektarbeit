@@ -33,6 +33,7 @@ public class Verkauf extends JFrame{
     private JLabel imageLabel;
     private JPanel imagePanel;
     private JComboBox comBox_Rabatt;
+    private JComboBox comBox_Groesse;
 
 
     //Konstruktor bilden
@@ -142,7 +143,7 @@ public class Verkauf extends JFrame{
             boolean istWasserdicht = checkBox_Wasserfest.isSelected();
 
             marke = comBox_Marken.getSelectedItem().toString();
-            groesse = tF_Groesse.getText();
+            groesse = comBox_Groesse.getSelectedItem().toString();
             preis = tF_Preis.getText();
 
             int groesseInt = Integer.parseInt(groesse);
@@ -156,7 +157,6 @@ public class Verkauf extends JFrame{
             zeigeAlleSchuhe();
 
             // Eingabefelder zurücksetzen
-            tF_Groesse.setText("");
             tF_Preis.setText("");
             checkBox_Wasserfest.setSelected(false);
 

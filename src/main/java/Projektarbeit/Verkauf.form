@@ -52,14 +52,6 @@
               <text value="Größe"/>
             </properties>
           </component>
-          <component id="951f6" class="javax.swing.JTextField" binding="tF_Groesse">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
           <component id="3d0ab" class="javax.swing.JLabel" binding="label_Preis">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -105,6 +97,27 @@
                 <item value="kein Rabatt"/>
                 <item value="10% Rabatt"/>
                 <item value="20% Rabatt"/>
+              </model>
+            </properties>
+          </component>
+          <component id="a8005" class="javax.swing.JComboBox" binding="comBox_Groesse">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="35"/>
+                <item value="35"/>
+                <item value="36"/>
+                <item value="37"/>
+                <item value="38"/>
+                <item value="39"/>
+                <item value="40"/>
+                <item value="41"/>
+                <item value="42"/>
+                <item value="43"/>
+                <item value="44"/>
+                <item value="45"/>
               </model>
             </properties>
           </component>
