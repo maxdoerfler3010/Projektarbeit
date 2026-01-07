@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Verkauf extends JFrame{
 
+    //Attribute angeben, damit sie schon gleich gespeichert sind
     private String marke;
     private String groesse;
     private String preis;
@@ -35,6 +36,7 @@ public class Verkauf extends JFrame{
     private JComboBox comBox_Groesse;
 
 
+    //Konstruktor bilden
     public Verkauf() {
         setTitle("Verkauf");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,6 +45,7 @@ public class Verkauf extends JFrame{
         //add(imageLabel("SchuheBanner.jpeg"));
         setVisible(true);
 
+        // ComboBox enthält alle möglichen Filteroptionen
         comBox_Rabatt.setModel(new DefaultComboBoxModel<>(new String[] {"Kein Rabatt", "10%", "20%"}));
 
         comboBox1_Filter.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -54,10 +57,12 @@ public class Verkauf extends JFrame{
         }));
 
 
+        //zeigt die 3 Anfangsschuhe direkt im Textfeld
         initObjekte();
         zeigeAlleSchuhe();
 
 
+        //Action Listener, um neue Objekte in einer Liste zu speichern
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -67,6 +72,7 @@ public class Verkauf extends JFrame{
         });
 
 
+        //Action listener, um alle Textfelder zu löschen
         loeschenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,11 +90,14 @@ public class Verkauf extends JFrame{
 
     }
 
+    //neue Array Liste erzeugen
     public static ArrayList<Schuhe> schuhListe = new ArrayList<>();
 
+    // neue Liste für die gefilterten Daten der Schuhe
     public static ArrayList<Schuhe> gefilterteDaten = new ArrayList<>();
 
 
+    //neue Objekte in der erzeugten Array Liste hinzufügen
     public static void initObjekte() {
         schuhListe.add(new Schuhe("Nike", 42, 110, false));
         schuhListe.add(new Schuhe("Adidas", 38, 119.99, true));
@@ -99,8 +108,10 @@ public class Verkauf extends JFrame{
         schuhListe.add(s);
     }
 
+    //Methode um alle Schuhe anzuzeigen
     public void zeigeAlleSchuhe() {
 
+        // Alle Schuhe aus der Liste werden durchlaufen und zum Text hinzugefügt
         textArea1_Schuhliste.setText("");
         for (Schuhe s : schuhListe) {
             textArea1_Schuhliste.setText(textArea1_Schuhliste.getText() + s.toString() + "\n\n");
@@ -108,6 +119,7 @@ public class Verkauf extends JFrame{
     }
 
 
+    //Methode um gefilterte Schuhe anzuzeigen
     public void zeigeGefilterteSchuhe() {
         textArea1_Filter.setText("");
         for (Schuhe s : gefilterteDaten) {
@@ -116,6 +128,7 @@ public class Verkauf extends JFrame{
     }
 
 
+    // neuen Schuh aus den Eingabefeldern erstellen, in Liste speichern & anzeigen
     public void speichereSchuh() {
         try {
             boolean istWasserdicht = checkBox_Wasserfest.isSelected();
@@ -127,11 +140,14 @@ public class Verkauf extends JFrame{
             int groesseInt = Integer.parseInt(groesse);
             double preisDouble = Double.parseDouble(preis);
 
+            // neues Objekt erzeugen und in der zentralen Liste speichern
             Schuhe neuerSchuh = new Schuhe(marke, groesseInt, preisDouble, istWasserdicht);
             addSchuhe(neuerSchuh);
 
+            // komplette Liste neu anzeigen
             zeigeAlleSchuhe();
 
+            // Eingabefelder zurücksetzen
             tF_Preis.setText("");
             checkBox_Wasserfest.setSelected(false);
 
@@ -144,16 +160,20 @@ public class Verkauf extends JFrame{
     }
 
 
+    //Rabatt auf den Schuh anwenden
     public void rabattbenutzen() {
         String rabatt = (String) comBox_Rabatt.getSelectedItem();
         if (rabatt == null) return;
 
+        // Wenn "Kein Rabatt" gewählt, nichts tun
         if (rabatt.equals("Kein Rabatt")) {
             return;
         }
 
+        // letzten Schuh holen
         Schuhe letzter = schuhListe.get(schuhListe.size() - 1);
 
+        // Welchen Rabatt anwenden?
         switch (rabatt) {
             case "10%":
                 letzter.applyDiscount(0.9);
@@ -162,22 +182,31 @@ public class Verkauf extends JFrame{
                 letzter.applyDiscount(0.8);
                 break;
             default:
+                // nicht erwartet — nichts tun
                 return;
         }
 
+        // Anzeige aktualisieren
         zeigeAlleSchuhe();
 
+        // Rabatt-ComboBox zurücksetzen
         comBox_Rabatt.setSelectedItem("Kein Rabatt");
     }
 
+    //Filter-Methode
+    // Die Methode filtert die Schuhe anhand der Auswahl in der ComboBox und speichert passende Schuhe in der Liste "gefilterteDaten"
     private void filtereNachMarke() {
 
-        gefilterteDaten.clear();
+        // Alte Filterergebnisse löschen, damit die Liste neu aufgebaut wird
+        gefilterteDaten.clear(); // wichtig!
 
+        // Ausgewählten Filter aus der ComboBox auslesen
         String filter = comboBox1_Filter.getSelectedItem().toString();
 
+        // Alle Schuhe aus der Hauptliste durchlaufen
         for (Schuhe s : schuhListe) {
 
+            // Je nach ausgewähltem Filter wird unterschiedlich geprüft
             switch (filter) {
                 case "Nike":
                 case "Adidas":
@@ -200,12 +229,13 @@ public class Verkauf extends JFrame{
                     break;
             }
         }
+        // Gefilterte Schuhe in der Filter TextArea anzeigen
         zeigeGefilterteSchuhe();
     }
 
 
     private void loeschen(){
-        textArea1_Schuhliste.setText("");
+        textArea1_Schuhliste.setText("");//Schuh-Liste löschen
         textArea1_Filter.setText("");
     }
 
@@ -215,4 +245,10 @@ public class Verkauf extends JFrame{
     }
 
 }
+
+//TO-DO
+/*
+fehlende Fehlermeldungen hinzufügen
+GUI schön machen
+ */
 
