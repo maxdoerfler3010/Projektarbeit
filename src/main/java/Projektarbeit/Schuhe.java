@@ -54,10 +54,4 @@ public class Schuhe {
                 "\nPreis: " + preisText +
                 "\n" + (istWasserdicht ? "Ist wasserdicht" : "Ist nicht wasserdicht");
     }
-
-
-
-    public boolean contains(String ausgewaehlteMarke) {
-    return false;
-    }
 }
